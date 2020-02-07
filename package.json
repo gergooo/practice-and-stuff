@@ -2,10 +2,22 @@
   "name": "practice-and-stuff",
   "version": "1.0.0",
   "description": "",
-  "main": "stuff.js",
   "scripts": {
-    "test": "mocha"
+    "tdd": "mocha --watch",
+    "test": "mocha",
+    "eslint": "eslint --ignore-path .gitignore ."
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "eslint": "6.8.0",
+    "eslint-config-google": "0.14.0",
+    "mocha": "7.0.1",
+    "sinon": "8.1.1",
+    "sinon-chai": "3.4.0"
+  },
+  "mocha": {
+    "recursive": true,
+    "file": "./test/setup.js"
+  }
 }
