@@ -1,18 +1,37 @@
 'use strict';
 
 function reversePolishNotationCalculator(input) {
-  let result = 0;
-  input = input.split(' ');
+  input = convertInputToArray(input);
 
   for (let i = 0; i < input.length; i++) {
-    if ('+-*/'.includes(input[i])) {
-      input[i] = result = eval(input[i - 2] + ' ' + input[i] + ' ' + input[i - 1]);
-      input.splice(i - 2, 2);
+    if (isOperator(input[i])) {
+      input[i] = getOperationResult(input, i);
+      removeOperands(input, i);
       i -= 2;
     }
   }
 
-  return result;
+  return input[0];
 };
+
+function convertInputToArray(input) {
+  return input.split(' ');
+}
+
+function isOperator(item) {
+  return '+-*/'.includes(item);
+}
+
+function getOperationResult(input, i) {
+  const firstOperand = input[i - 2];
+  const secondOperand = input[i - 1];
+  const operator = input[i];
+
+  return eval(firstOperand + operator + secondOperand);
+}
+
+function removeOperands(input, operatorIndex) {
+  input.splice(operatorIndex - 2, 2);
+}
 
 module.exports = {reversePolishNotationCalculator};
