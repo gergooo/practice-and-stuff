@@ -1,8 +1,8 @@
 'use strict';
 
-const {reversePolishNotationCalculator} = require('../src/reverse-polish-notation-calculator');
+const {reversePolishNotationCalculator} = require('../src/optimized-reverse-polish-notation-calculator');
 
-describe('Reverse Polish Notation calculator', function() {
+describe('Optimized Reverse Polish Notation calculator', function() {
   context('operators', function() {
     it('2 3 + = 5', function() {
       reversePolishNotationCalculator('2 3 +').should.equal(5);
