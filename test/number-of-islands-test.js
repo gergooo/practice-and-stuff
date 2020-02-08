@@ -2,7 +2,7 @@
 
 const {getNumberOfIslands} = require('../src/number-of-islands');
 
-describe.only('Number of Islands', function() {
+describe('Number of Islands', function() {
   context('no islands', function() {
     it('should return 0 if no island is present', function() {
       getNumberOfIslands([
